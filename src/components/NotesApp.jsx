@@ -7,8 +7,8 @@ export default function NotesUI() {
   const textarearef = useRef(null);
   const Randerer = useRef(true)
 
-  const [title, settitle] = useState();
-  const [disc, setdisc] = useState();
+  const [title, settitle] = useState("");
+  const [disc, setdisc] = useState("");
   const [note, setnote] = useState([]);
   const date = new Date();
 
@@ -20,11 +20,11 @@ export default function NotesUI() {
       return
     }
      
-    localStorage.setItem("note" , JSON.stringify(note))
+    localStorage.setItem("note" , JSON.stringify(note)) 
   }, [note])
 
   useEffect(()=>{
-    const not1e = JSON.parse(localStorage.getItem("note"))
+    const not1e = JSON.parse(localStorage.getItem("note")) || [];
     setnote(not1e)
   }, [])
 
